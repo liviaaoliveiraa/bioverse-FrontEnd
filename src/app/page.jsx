@@ -11,13 +11,15 @@ export default function Home() {
                     href="https://codeverse.dev.br"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={styles.cta}>
+                    className={styles.cta}
+                >
                     <svg
                         className={styles.ctaIcon}
                         viewBox="-11.5 -10.23174 23 20.46348"
                         width="25"
                         height="25"
-                        aria-hidden="true">
+                        aria-hidden="true"
+                    >
                         <circle r="2.05" fill="currentColor" />
                         <g stroke="currentColor" strokeWidth="1" fill="none">
                             <ellipse rx="11" ry="4.2" />
@@ -28,12 +30,14 @@ export default function Home() {
                     Ver material tutorial
                 </a>
 
-                <p className={styles.tagline}>Scaffolding oficial - Codeverse</p>
+                <p className={styles.tagline}>
+                    Scaffolding oficial - Codeverse
+                </p>
             </div>
 
-            <footer className={styles.footer}>
-                <p className={styles.footerText}>Pouco pra quem vê..., muito pra quem aprende.</p>
-            </footer>
+            <p className={styles.footer}>
+                Pouco pra quem vê..., muito pra quem aprende.
+            </p>
         </main>
     );
 }
