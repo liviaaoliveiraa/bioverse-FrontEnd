@@ -1,0 +1,43 @@
+
+.card {
+    background-color: #f3e1b6;
+    border-radius: 12px;
+    padding: 22px;
+    border: 1px solid #e5d5ad;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.icone {
+    font-size: 30px;
+}
+
+.card h3 {
+    color: #1d5e69;
+    font-size: 18px;
+    margin: 12px 0 8px;
+}
+
+.card p {
+    color: #555555;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+}
+
+.botao {
+    display: inline-block;
+    background-color: #23998e;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 9px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+.botao:hover {
+    background-color: #1d5e69;
+}
