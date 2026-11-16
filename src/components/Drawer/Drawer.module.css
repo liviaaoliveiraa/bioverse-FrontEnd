@@ -1,0 +1,161 @@
+/* --- TEMAS (mesmas cores da header) --- */
+.light {
+  --bg: #f7f4e9;
+  --border: #dcd5be;
+  --text-main: #2d4233;
+  --accent: #3d7a4f;
+  --btn-bg: #ebe5d1;
+  --overlay: rgba(30, 40, 30, 0.4);
+}
+
+.dark {
+  --bg: #858f7f;
+  --border: #727b6c;
+  --text-main: #252a23;
+  --accent: #355d3d;
+  --btn-bg: #768070;
+  --overlay: rgba(0, 0, 0, 0.5);
+}
+
+/* --- FUNDO ESCURO --- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: var(--overlay);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.overlayOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* --- PAINEL --- */
+.drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 60;
+  width: min(320px, 85vw);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: var(--bg);
+  color: var(--text-main);
+  border-right: 2px solid var(--border);
+  font-family: 'VT323', monospace;
+  transform: translateX(-100%);
+  visibility: hidden; /* fechado: fora da ordem de tab */
+  transition:
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.3s ease,
+    visibility 0s linear 0.3s;
+}
+
+.drawerOpen {
+  transform: translateX(0);
+  visibility: visible;
+  transition:
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.3s ease,
+    visibility 0s;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 2px solid var(--border);
+}
+
+.title {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.iconBtn {
+  background: none;
+  color: var(--text-main);
+  border: 0;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconBtn:hover {
+  color: var(--accent);
+}
+
+/* --- LINKS --- */
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  font-size: 1.6rem;
+  color: var(--text-main);
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.link:hover {
+  background: var(--btn-bg);
+  color: var(--accent);
+  transform: translateX(4px);
+}
+
+.active {
+  background: var(--btn-bg);
+  border-color: var(--border);
+  color: var(--accent);
+}
+
+/* --- BOTÃO DE TEMA --- */
+.themeBtn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  margin-top: 16px;
+  font-family: inherit;
+  font-size: 1.5rem;
+  color: var(--text-main);
+  background: var(--btn-bg);
+  border: 2px solid var(--border);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.themeBtn:hover {
+  color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay,
+  .drawer,
+  .link {
+    transition: none;
+  }
+}

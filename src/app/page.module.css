@@ -57,7 +57,7 @@
     margin-top: 1rem;
     border-radius: 999px;
     padding: 0.85rem 2.25rem;
-    background: linear-gradient(135deg, #a5b4fc 0%, #38bdf8 100%);
+    background: linear-gradient(135deg, #000000 0%, #000000 100%);
     color: #0a0f1e;
     font-weight: 700;
     text-decoration: none;
@@ -67,7 +67,7 @@
 }
 
 .cta:hover {
-    box-shadow: 0 10px 30px rgba(56, 189, 248, 0.35);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
     transform: translateY(-2px);
 }
 
@@ -86,13 +86,13 @@
 
 .tagline {
     margin-top: 1rem;
-    color: #94a3b8;
+    color: #000000;
     font-size: 0.85rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
 }
 
 .footer {
-    color: rgba(148, 163, 184, 0.6);
+    color: rgba(0, 0, 0, 0.6);
     font-size: 0.85rem;
 }
