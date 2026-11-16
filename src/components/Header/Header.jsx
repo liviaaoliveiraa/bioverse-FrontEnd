@@ -5,6 +5,7 @@ import { Menu, Moon, Search, Sun } from 'lucide-react';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import desenhoImg from '../../assets/desenho.png';
+import escritaClaraImg from '../../assets/escrita-clara.png';
 import escritaImg from '../../assets/escrita.png';
 import Drawer from '../Drawer/Drawer';
 import styles from './Header.module.css';
@@ -106,7 +107,13 @@ export default function Header({ children }) {
           </div>
 
           <a href="/" className={styles.logoWrapper}>
-            <Image src={escritaImg} alt="Bioverse" className={styles.escritaImg} />
+            <span className={styles.escritaFrame}>
+              <Image
+                src={isDark ? escritaClaraImg : escritaImg}
+                alt="Bioverse"
+                className={`${styles.escritaImg} ${isDark ? styles.escritaImgLight : ''}`}
+              />
+            </span>
 
             <div className={styles.desenhoContainer}>
               <div className={styles.sparklesLayer} aria-hidden="true">

@@ -32,13 +32,14 @@
 }
 
 .dark {
-  --bg-top: #858f7f;
-  --bg-scrolled: rgba(133, 143, 127, 0.94);
-  --border-top: #727b6c;
-  --text-main: #252a23;
-  --accent: #355d3d;
-  --btn-bg: #768070;
-  --sparkle-color: #eab308;
+  --bg-top: 
+  #7f8a79;
+  --bg-scrolled:   #7f8a79;
+  --border-top:   #7f8a79;
+  --text-main:  #7f8a79;
+  --accent:  #7f8a79;
+  --btn-bg:  #7f8a79;
+  --sparkle-color: #eeebe2;
 }
 
 /* --- CAMADA DE BLUR ---
@@ -125,6 +126,11 @@
   color: var(--accent);
 }
 
+.dark .iconBtn,
+.dark .iconBtn:hover {
+  color: #fff;
+}
+
 .searchControl {
   display: flex;
   align-items: center;
@@ -175,13 +181,36 @@
   cursor: pointer;
 }
 
-.escritaImg {
+.dark .logoWrapper {
+  gap: 24px;
+}
+
+.escritaFrame {
+  display: block;
+  flex: 0 0 272px;
+  width: 272px;
   height: 92px;
-  width: auto;
+  overflow: hidden;
+  filter: drop-shadow(0 0 3px rgba(45, 66, 51, 0.3));
+}
+
+.dark .escritaFrame {
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.3));
+}
+
+.escritaImg {
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  border-radius: 6px;
   mix-blend-mode: multiply;
   transition: transform 0.25s ease;
+}
+
+.escritaImgLight {
+  object-fit: cover;
+  object-position: center bottom;
+  transform: scale(1.25);
 }
 
 .dark .escritaImg {
@@ -190,6 +219,10 @@
 
 .logoWrapper:hover .escritaImg {
   transform: translateX(-2px);
+}
+
+.logoWrapper:hover .escritaImgLight {
+  transform: translateX(-2px) scale(1.25);
 }
 
 .desenhoContainer {
@@ -274,7 +307,9 @@
     padding-top: 146px;
   }
 
-  .escritaImg {
+  .escritaFrame {
+    flex-basis: 189px;
+    width: 189px;
     height: 64px;
   }
 
@@ -285,6 +320,10 @@
 
   .logoWrapper {
     gap: 12px;
+  }
+
+  .dark .logoWrapper {
+    gap: 18px;
   }
 }
 
@@ -316,7 +355,13 @@
     padding: 0;
   }
 
-  .escritaImg {
+  .dark .logoWrapper {
+    gap: 12px;
+  }
+
+  .escritaFrame {
+    flex-basis: 159px;
+    width: 159px;
     height: 54px;
   }
 
