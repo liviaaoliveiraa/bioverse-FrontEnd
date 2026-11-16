@@ -13,6 +13,13 @@
   font-family: 'VT323', monospace;
 }
 
+.pageShell {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  padding-top: 186px;
+}
+
 /* --- TEMAS --- */
 .light {
   --bg-top: #f7f4e9;
@@ -224,6 +231,10 @@
     height: 120px;
   }
 
+  .pageShell {
+    padding-top: 146px;
+  }
+
   .escritaImg {
     height: 64px;
   }
@@ -242,6 +253,10 @@
   .header {
     --fade: 32px;
     height: 106px;
+  }
+
+  .pageShell {
+    padding-top: 122px;
   }
 
   .container {

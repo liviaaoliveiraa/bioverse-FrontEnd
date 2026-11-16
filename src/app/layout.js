@@ -11,10 +11,10 @@ export default function RootLayout({ children }) {
     return (
         <html lang="pt-BR">
             <body>
-                    <Header>
-                        {children}
-                        <Footer />
-                    </Header>
+                <Header>
+                    <div style={{ flex: 1 }}>{children}</div>
+                    <Footer />
+                </Header>
                 <Toaster />
             </body>
         </html>

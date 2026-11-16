@@ -1,4 +1,6 @@
 import styles from './Footer.module.css';
+import Image from 'next/image';
+import escritaImg from '../../assets/escrita-clara.png';
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
@@ -9,7 +11,11 @@ export default function Footer() {
             <div className={styles.inner}>
                 <div className={styles.brand}>
                     <a className={styles.logo} href="/">
-                        Bioverse
+                        <Image
+                            className={styles.logoImg}
+                            src={escritaImg}
+                            alt="Bioverse"
+                        />
                     </a>
                     <p>
                         Explore conteúdos e descubra mais sobre o universo da
