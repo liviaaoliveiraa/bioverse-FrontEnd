@@ -1,22 +1,30 @@
 
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import { Menu, Moon, Search, Sun } from 'lucide-react';
 import Image from 'next/image';
-import { Menu, Moon, Sun } from 'lucide-react';
-import styles from './Header.module.css';
+import { useEffect, useRef, useState } from 'react';
 import desenhoImg from '../../assets/desenho.png';
 import escritaImg from '../../assets/escrita.png';
 import Drawer from '../Drawer/Drawer';
+import styles from './Header.module.css';
 
 export default function Header({ children }) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const searchInputRef = useRef(null);
 
   const openDrawer = () => setIsDrawerOpen(true);
   const closeDrawer = () => setIsDrawerOpen(false);
   const toggleTheme = () => setIsDark((prev) => !prev);
+
+  useEffect(() => {
+    if (isSearchOpen) {
+      searchInputRef.current?.focus();
+    }
+  }, [isSearchOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,6 +74,36 @@ export default function Header({ children }) {
                 <Moon size={24} aria-hidden="true" />
               )}
             </button>
+
+            <div
+              className={`${styles.searchControl} ${isSearchOpen ? styles.searchControlOpen : ''}`}
+            >
+              <button
+                type="button"
+                onClick={() => setIsSearchOpen((prev) => !prev)}
+                className={styles.iconBtn}
+                aria-label={isSearchOpen ? 'Fechar pesquisa' : 'Abrir pesquisa'}
+                aria-expanded={isSearchOpen}
+                aria-controls="header-search"
+              >
+                <Search size={24} aria-hidden="true" />
+              </button>
+              <input
+                ref={searchInputRef}
+                id="header-search"
+                type="search"
+                className={styles.searchInput}
+                placeholder="Pesquisar..."
+                aria-label="Pesquisar"
+                aria-hidden={!isSearchOpen}
+                tabIndex={isSearchOpen ? 0 : -1}
+                onKeyDown={(event) => {
+                  if (event.key === 'Escape') {
+                    setIsSearchOpen(false);
+                  }
+                }}
+              />
+            </div>
           </div>
 
           <a href="/" className={styles.logoWrapper}>

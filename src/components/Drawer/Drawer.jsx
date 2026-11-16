@@ -2,8 +2,10 @@
 
 import { useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { X, Home, BookOpen, Newspaper, Info, Moon, Sun } from 'lucide-react';
+import escritaImg from '../../assets/escrita.png';
 import styles from './Drawer.module.css';
 
 // troque pelas rotas reais do site
@@ -57,7 +59,7 @@ export default function Drawer({ isOpen, onClose, isDark, onToggleTheme }) {
         aria-hidden={!isOpen}
       >
         <div className={styles.top}>
-          <span className={styles.title}>Bioverse</span>
+          <Image src={escritaImg} alt="Bioverse" className={styles.titleImage} />
           <button
             type="button"
             onClick={onClose}
