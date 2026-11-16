@@ -13,7 +13,6 @@ import styles from './Header.module.css';
 export default function Header({ children }) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const searchInputRef = useRef(null);
 
@@ -27,16 +26,6 @@ export default function Header({ children }) {
     }
   }, [isSearchOpen]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 15);
-    };
-
-    handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
     <div
       className={`${styles.pageShell} ${isDark ? styles.dark : styles.light}`}
@@ -46,11 +35,7 @@ export default function Header({ children }) {
         transition: 'background-color 0.3s ease',
       }}
     >
-      <header
-        className={`${styles.header} ${isDark ? styles.dark : styles.light} ${
-          isScrolled ? styles.scrolled : styles.top
-        }`}
-      >
+      <header className={`${styles.header} ${isDark ? styles.dark : styles.light}`}>
         <div className={styles.container}>
           <div className={styles.leftGroup}>
             <button
