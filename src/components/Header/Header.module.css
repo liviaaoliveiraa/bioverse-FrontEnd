@@ -125,6 +125,45 @@
   color: var(--accent);
 }
 
+.searchControl {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.searchInput {
+  box-sizing: border-box;
+  width: 0;
+  min-width: 0;
+  height: 40px;
+  padding: 0;
+  color: #808080;
+  background-color: #fff;
+  border: 0 solid #fff;
+  border-radius: 999px;
+  opacity: 0;
+  overflow: hidden;
+  font: inherit;
+  transition:
+    width 0.3s ease,
+    padding 0.3s ease,
+    border-width 0.3s ease,
+    opacity 0.2s ease;
+}
+
+.searchControlOpen .searchInput {
+  width: clamp(140px, 26vw, 260px);
+  padding: 0 12px;
+  border-width: 1px;
+  opacity: 1;
+}
+
+.searchInput:focus {
+  border-color: var(--accent);
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
 /* --- CANTO DIREITO: ESCRITA + DESENHO + BRILHINHOS --- */
 .logoWrapper {
   position: relative;
