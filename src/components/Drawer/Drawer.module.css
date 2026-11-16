@@ -76,9 +76,15 @@
   border-bottom: 2px solid var(--border);
 }
 
-.title {
-  font-size: 2rem;
-  line-height: 1;
+.titleImage {
+  width: 150px;
+  height: 48px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.dark .titleImage {
+  mix-blend-mode: normal;
 }
 
 .iconBtn {
