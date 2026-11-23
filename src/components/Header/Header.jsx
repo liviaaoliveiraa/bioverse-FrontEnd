@@ -1,8 +1,9 @@
 'use client';
 
 
-import { Menu, Moon, Search, Sun } from 'lucide-react';
+import { Menu, Moon, Search, Sun, UserRound } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import desenhoImg from '../../assets/desenho.png';
 import escritaImg from '../../assets/escrita.png';
@@ -105,9 +106,8 @@ export default function Header({ children }) {
               />
             </div>
           </div>
-          <a href="/" className={styles.logoWrapper}>
+  <Link href="/" className={styles.logoWrapper}>
             <Image src={escritaImg} alt="Bioverse" className={styles.escritaImg} />
-
 
             <div className={styles.desenhoContainer}>
               <div className={styles.sparklesLayer} aria-hidden="true">
@@ -118,18 +118,20 @@ export default function Header({ children }) {
                 <span className={`${styles.sparkle} ${styles.s5}`}>✧</span>
               </div>
 
-
               <div className={styles.logoFrame}>
                 <Image src={desenhoImg} alt="Logo Bioverse" className={styles.desenhoImg} />
               </div>
             </div>
-          </a>
+          </Link>
+
+          <Link href="/login" className={styles.iconBtn} aria-label="Entrar">
+            <UserRound size={24} aria-hidden="true" />
+          </Link>
         </div>
       </header>
       <div
         className={`${styles.pageShell} ${isDark ? styles.dark : styles.light}`}
         style={{
-          minHeight: '200vh',
           backgroundColor: isDark ? '#858f7f' : '#f7f4e9',
           color: isDark ? '#252a23' : '#2d4233',
           transition: 'background-color 0.3s ease',
