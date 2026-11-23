@@ -1,14 +1,12 @@
 'use client';
 
 
-import { Menu, Moon, Search, Sun } from 'lucide-react';
+import { Menu, Moon, Search, Sun, UserRound } from 'lucide-react';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import desenhoImg from '../../assets/desenho.png';
 import escritaImg from '../../assets/escrita.png';
-import { Menu, Moon, Search, Sun, UserRound } from 'lucide-react';
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
 import Drawer from '../Drawer/Drawer';
 import styles from './Header.module.css';
 
@@ -108,12 +106,7 @@ export default function Header({ children }) {
               />
             </div>
           </div>
-          
-          <a href="/" className={styles.logoWrapper}>
-            <Image src={escritaImg} alt="Bioverse" className={styles.escritaImg} />
-
-
-  <Link href="/" className={styles.logoWrapper}>
+          <Link href="/" className={styles.logoWrapper}>
             <Image src={escritaImg} alt="Bioverse" className={styles.escritaImg} />
 
             <div className={styles.desenhoContainer}>
@@ -130,7 +123,6 @@ export default function Header({ children }) {
                 <Image src={desenhoImg} alt="Logo Bioverse" className={styles.desenhoImg} />
               </div>
             </div>
-          </a>
           </Link>
 
           <Link href="/login" className={styles.iconBtn} aria-label="Entrar">
