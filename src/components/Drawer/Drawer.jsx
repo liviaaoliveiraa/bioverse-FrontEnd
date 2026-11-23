@@ -4,15 +4,32 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { X, Home, BookOpen, Newspaper, Info, Moon, Sun } from 'lucide-react';
+import {
+  X,
+  Home,
+  BookOpen,
+  Newspaper,
+  Info,
+  Moon,
+  Sun,
+  Briefcase,
+  Lightbulb,
+  GraduationCap,
+  ClipboardCheck,
+  Video,
+} from 'lucide-react';
 import escritaImg from '../../assets/escrita.png';
 import styles from './Drawer.module.css';
 
-// troque pelas rotas reais do site
 const LINKS = [
   { href: '/', label: 'Início', Icon: Home },
   { href: '/materias', label: 'Matérias', Icon: BookOpen },
   { href: '/noticias', label: 'Notícias', Icon: Newspaper },
+  { href: '/videos', label: 'Vídeos', Icon: Video },
+  { href: '/dicas', label: 'Dicas', Icon: Lightbulb },
+  { href: '/simulado', label: 'Simulado', Icon: ClipboardCheck },
+  { href: '/estagio', label: 'Estágio', Icon: GraduationCap },
+  { href: '/carreiras', label: 'Carreiras', Icon: Briefcase },
   { href: '/sobre', label: 'Sobre nós', Icon: Info },
 ];
 
