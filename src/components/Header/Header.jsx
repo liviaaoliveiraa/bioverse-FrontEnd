@@ -7,11 +7,8 @@ import { useEffect, useRef, useState } from 'react';
 import desenhoImg from '../../assets/desenho.png';
 import escritaImg from '../../assets/escrita.png';
 import { Menu, Moon, Search, Sun, UserRound } from 'lucide-react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
-import desenhoImg from '../../assets/desenho.png';
-import escritaImg from '../../assets/escrita.png';
 import Drawer from '../Drawer/Drawer';
 import styles from './Header.module.css';
 
