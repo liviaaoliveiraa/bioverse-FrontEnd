@@ -14,33 +14,50 @@
   aspect-ratio: 32 / 13;
   margin: 16px auto 0;
   margin: clamp(46px, calc(4vw + 18px), 66px) auto 0;
-  border: 2px solid #315f50;
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.frame {
-  z-index: 0;
-  object-fit: fill;
+  overflow: visible;
 }
 
 .container::before {
   content: '';
   position: absolute;
   z-index: 1;
-  inset: clamp(24px, 4vw, 48px);
-  border-radius: 18px;
+  inset: clamp(8px, 1.5vw, 18px);
+  border-radius: 14px;
+  clip-path: inset(0 round 14px);
   background-image: url('../assets/sakura4k.gif');
   background-position: calc(50% - 8px) center;
   background-repeat: no-repeat;
   background-size: cover;
   opacity: 0.9;
+  -webkit-mask-image:
+    linear-gradient(to right, transparent, #000 24px, #000 calc(100% - 24px), transparent),
+    linear-gradient(to bottom, transparent, #000 24px, #000 calc(100% - 24px), transparent);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right, transparent, #000 24px, #000 calc(100% - 24px), transparent),
+    linear-gradient(to bottom, transparent, #000 24px, #000 calc(100% - 24px), transparent);
+  mask-composite: intersect;
+}
+
+.container::after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  inset: clamp(8px, 1.5vw, 18px);
+  border-radius: 14px;
+  background-image: url('../assets/sakura4k.gif');
+  background-position: calc(50% - 8px) center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(12px);
+  opacity: 0.7;
+  pointer-events: none;
 }
 
 .logo {
   position: absolute;
   z-index: 2;
-  top: 20px;
+  top: calc(50% - 86px);
   left: 24px;
   width: min(400px, 45%);
   height: 140px;
@@ -54,7 +71,7 @@
   align-self: flex-start;
   width: clamp(150px, 22vw, 230px);
   margin-top: clamp(64px, 7vw, 88px);
-  margin-left: max(12px, calc((100% - 980px) / 2 - 70px));
+  margin-left: max(0px, calc((100% - 980px) / 2 - 120px));
 }
 
 .axolotlImage {
@@ -153,14 +170,14 @@
   }
 
   .logo {
-    top: 14px;
+    top: calc(50% - 71px);
     left: 16px;
     height: 110px;
   }
 
   .axolotl {
     width: clamp(140px, 28vw, 210px);
-    margin-left: 8px;
+    margin-left: 0;
   }
 }
 
@@ -173,11 +190,12 @@
   .logo {
     width: min(300px, 78%);
     height: 120px;
+    top: calc(50% - 76px);
   }
 
   .axolotl {
     width: 160px;
-    margin-left: 6px;
+    margin-left: 0;
   }
 }
 
