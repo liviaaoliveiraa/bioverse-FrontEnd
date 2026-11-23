@@ -1,12 +1,21 @@
 import Image from 'next/image';
 import axoloteImg from '../assets/axolote.png';
 import logoBranca from '../assets/escrita-clara.png';
+import molduraImg from '../assets/moldura.png';
 import styles from './page.module.css';
 
 export default function Home() {
     return (
         <main className={styles.page}>
             <section className={styles.container} aria-label="BioVerse">
+                <Image
+                    src={molduraImg}
+                    alt=""
+                    fill
+                    aria-hidden="true"
+                    className={styles.frame}
+                    priority
+                />
                 <Image src={logoBranca} alt="BioVerse" className={styles.logo} />
             </section>
             <div className={styles.axolotl}>
