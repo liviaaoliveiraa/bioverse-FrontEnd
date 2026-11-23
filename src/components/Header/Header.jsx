@@ -111,8 +111,8 @@ export default function Header({ children }) {
       <div
         className={`${styles.pageShell} ${isDark ? styles.dark : styles.light}`}
         style={{
-          backgroundColor: isDark ? '#858f7f' : '#f7f4e9',
-          color: isDark ? '#252a23' : '#2d4233',
+          backgroundColor: isDark ? '#564d61' : '#f7f4e9',
+          color: isDark ? '#d8cbd8' : '#2d4233',
           transition: 'background-color 0.3s ease',
         }}
       >

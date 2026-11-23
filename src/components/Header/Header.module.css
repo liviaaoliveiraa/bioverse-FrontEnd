@@ -29,12 +29,12 @@
 
 
 .dark {
-  --bg-top: #707b6d;
-  --bg-scrolled: rgba(112, 123, 109, 0.98);
-  --text-main: #252a23;
-  --accent: #355d3d;
-  --btn-bg: #768070;
-  --sparkle-color: #eab308;
+  --bg-top: #302734;
+  --bg-scrolled: rgba(48, 45, 57, 0.98);
+  --text-main: #bdacbd;
+  --accent: #302D39;
+  --btn-bg: #302D39;
+  --sparkle-color: #302D39;
 }
 
 
