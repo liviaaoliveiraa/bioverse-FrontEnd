@@ -2,11 +2,7 @@
 'use client';
 
 import { Menu, Moon, Search, Sun } from 'lucide-react';
-import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
-import desenhoImg from '../../assets/desenho.png';
-import escritaClaraImg from '../../assets/escrita-clara.png';
-import escritaImg from '../../assets/escrita.png';
 import Drawer from '../Drawer/Drawer';
 import styles from './Header.module.css';
 
@@ -90,30 +86,6 @@ export default function Header({ children }) {
               />
             </div>
           </div>
-
-          <a href="/" className={styles.logoWrapper}>
-            <span className={styles.escritaFrame}>
-              <Image
-                src={isDark ? escritaClaraImg : escritaImg}
-                alt="Bioverse"
-                className={`${styles.escritaImg} ${isDark ? styles.escritaImgLight : ''}`}
-              />
-            </span>
-
-            <div className={styles.desenhoContainer}>
-              <div className={styles.sparklesLayer} aria-hidden="true">
-                <span className={`${styles.sparkle} ${styles.s1}`}>✦</span>
-                <span className={`${styles.sparkle} ${styles.s2}`}>✧</span>
-                <span className={`${styles.sparkle} ${styles.s3}`}>✦</span>
-                <span className={`${styles.sparkle} ${styles.s4}`}>★</span>
-                <span className={`${styles.sparkle} ${styles.s5}`}>✧</span>
-              </div>
-
-              <div className={styles.logoFrame}>
-                <Image src={desenhoImg} alt="Logo Bioverse" className={styles.desenhoImg} />
-              </div>
-            </div>
-          </a>
         </div>
       </header>
       <Drawer
