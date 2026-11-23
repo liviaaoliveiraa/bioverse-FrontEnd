@@ -17,11 +17,12 @@
     justify-content: center;
     align-items: center;
     padding: 40px 20px;
+    transform: translateY(-43vh);
 }
 
 .logo {
     display: block;
-    width: min(480px, 75%);
+    width: min(760px, 85%);
     height: auto;
     object-fit: contain;
     filter: drop-shadow(0 3px 5px rgba(30, 55, 45, 0.35));
@@ -29,6 +30,6 @@
 
 @media (max-width: 768px) {
     .logo {
-        width: min(380px, 85%);
+        width: min(520px, 90%);
     }
 }
