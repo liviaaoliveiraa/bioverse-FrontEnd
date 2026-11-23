@@ -2,8 +2,8 @@
 
 
 import { Menu, Moon, Search, Sun, UserRound } from 'lucide-react';
-import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import Drawer from '../Drawer/Drawer';
 import styles from './Header.module.css';
 
@@ -103,7 +103,6 @@ export default function Header({ children }) {
               />
             </div>
           </div>
-          
           <Link href="/login" className={styles.iconBtn} aria-label="Entrar">
             <UserRound size={24} aria-hidden="true" />
           </Link>
