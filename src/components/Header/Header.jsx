@@ -7,8 +7,11 @@ import { useEffect, useRef, useState } from 'react';
 import desenhoImg from '../../assets/desenho.png';
 import escritaImg from '../../assets/escrita.png';
 import { Menu, Moon, Search, Sun, UserRound } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
+import desenhoImg from '../../assets/desenho.png';
+import escritaImg from '../../assets/escrita.png';
 import Drawer from '../Drawer/Drawer';
 import styles from './Header.module.css';
 
@@ -113,6 +116,9 @@ export default function Header({ children }) {
             <Image src={escritaImg} alt="Bioverse" className={styles.escritaImg} />
 
 
+  <Link href="/" className={styles.logoWrapper}>
+            <Image src={escritaImg} alt="Bioverse" className={styles.escritaImg} />
+
             <div className={styles.desenhoContainer}>
               <div className={styles.sparklesLayer} aria-hidden="true">
                 <span className={`${styles.sparkle} ${styles.s1}`}>✦</span>
@@ -128,6 +134,8 @@ export default function Header({ children }) {
               </div>
             </div>
           </a>
+          </Link>
+
           <Link href="/login" className={styles.iconBtn} aria-label="Entrar">
             <UserRound size={24} aria-hidden="true" />
           </Link>
