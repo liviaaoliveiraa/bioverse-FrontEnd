@@ -1,0 +1,249 @@
+.loginPage {
+    position: relative;
+    display: flex;
+    flex: 1;
+    min-height: calc(100vh - 88px);
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 100px 20px 130px;
+    background: #e9e4c9;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.cenario {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.conteudo {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    max-width: 555px;
+    padding: 45px 40px 28px;
+    border: 4px solid #65744d;
+    border-radius: 18px 18px 12px 12px;
+    background: rgba(250, 244, 222, 0.97);
+    box-shadow: 7px 8px 0 rgba(62, 77, 48, 0.2);
+    color: #344b35;
+    text-align: center;
+}
+
+.sapoContainer {
+    position: absolute;
+    top: -105px;
+    left: 50%;
+    width: 220px;
+    height: 125px;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sapo {
+    width: 100%;
+    height: 100%;
+    image-rendering: pixelated;
+    filter: drop-shadow(3px 4px 0 rgba(45, 65, 43, 0.2));
+}
+
+.card h1 {
+    max-width: 420px;
+    margin: 0 auto 12px;
+    color: #344b35;
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.subtitulo {
+    margin: 0 0 27px;
+    color: #40513c;
+    font-size: 19px;
+    line-height: 1.5;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+.campo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    height: 66px;
+    padding: 0 17px;
+    border: 2px solid #b0b496;
+    border-radius: 12px;
+    background: rgba(255, 250, 231, 0.65);
+    color: #40513c;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.campo:focus-within {
+    border-color: #55744b;
+    box-shadow: 0 0 0 3px rgba(85, 116, 75, 0.12);
+}
+
+.campo input {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #344b35;
+    font-size: 21px;
+}
+
+.campo input::placeholder {
+    color: #898d72;
+    opacity: 1;
+}
+
+.mostrarSenha {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    border: none;
+    background: transparent;
+    color: #40513c;
+    cursor: pointer;
+}
+
+.mostrarSenha:hover {
+    color: #779451;
+}
+
+.botaoEntrar {
+    width: 100%;
+    height: 62px;
+    margin-top: 7px;
+    border: 2px solid #344b35;
+    border-radius: 11px;
+    background: #405d40;
+    color: #fff8e8;
+    font-size: 22px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.botaoEntrar:hover {
+    background: #304b34;
+    transform: translateY(-2px);
+}
+
+.divisor {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    margin: 23px 0 19px;
+}
+
+.divisor span {
+    flex: 1;
+    height: 2px;
+    background: #c5c2a3;
+}
+
+.divisor p {
+    margin: 0;
+    color: #40513c;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.cadastro {
+    margin: 0;
+    color: #40513c;
+    font-size: 18px;
+}
+
+.cadastro a {
+    color: #344b35;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.cadastro a:hover {
+    color: #779451;
+}
+
+@media (max-width: 600px) {
+    .loginPage {
+        min-height: calc(100vh - 88px);
+        padding: 100px 18px 100px;
+    }
+
+    .card {
+        max-width: 440px;
+        padding: 40px 23px 25px;
+    }
+
+    .card h1 {
+        font-size: 31px;
+    }
+
+    .subtitulo {
+        font-size: 16px;
+    }
+
+    .campo {
+        height: 58px;
+        gap: 10px;
+        padding: 0 12px;
+    }
+
+    .campo input {
+        font-size: 17px;
+    }
+
+    .botaoEntrar {
+        height: 56px;
+        font-size: 19px;
+    }
+
+    .cadastro {
+        font-size: 15px;
+    }
+
+    .sapoContainer {
+        top: -91px;
+        width: 190px;
+        height: 110px;
+    }
+}
+
+@media (max-width: 380px) {
+    .card {
+        padding-right: 17px;
+        padding-left: 17px;
+    }
+
+    .card h1 {
+        font-size: 27px;
+    }
+
+    .subtitulo {
+        font-size: 14px;
+    }
+}
