@@ -2,12 +2,10 @@
 
 
 import { Menu, Moon, Search, Sun } from 'lucide-react';
+import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
-<<<<<<< HEAD
-=======
 import desenhoImg from '../../assets/desenho.png';
 import escritaImg from '../../assets/escrita.png';
->>>>>>> caff905ad15fb5ee224cfd39779e2f091df2c50d
 import Drawer from '../Drawer/Drawer';
 import styles from './Header.module.css';
 
@@ -107,10 +105,6 @@ export default function Header({ children }) {
               />
             </div>
           </div>
-<<<<<<< HEAD
-=======
-
-
           <a href="/" className={styles.logoWrapper}>
             <Image src={escritaImg} alt="Bioverse" className={styles.escritaImg} />
 
@@ -130,7 +124,6 @@ export default function Header({ children }) {
               </div>
             </div>
           </a>
->>>>>>> caff905ad15fb5ee224cfd39779e2f091df2c50d
         </div>
       </header>
       <div
