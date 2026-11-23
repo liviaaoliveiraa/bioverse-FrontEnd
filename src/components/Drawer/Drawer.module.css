@@ -9,13 +9,14 @@
 }
 
 .dark {
-  --bg: #858f7f;
-  --border: #727b6c;
-  --text-main: #252a23;
-  --accent: #355d3d;
-  --btn-bg: #768070;
+  --bg: #302734;
+  --border: #726c7b;
+   --text-main: #bdacbd;
+  --accent: #3d373d;
+  --btn-bg: #727581;
   --overlay: rgba(0, 0, 0, 0.5);
 }
+
 
 /* --- FUNDO ESCURO --- */
 .overlay {
