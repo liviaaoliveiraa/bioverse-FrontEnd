@@ -1,7 +1,8 @@
 'use client';
 
 
-import { Menu, Moon, Search, Sun } from 'lucide-react';
+import Link from 'next/link';
+import { Menu, Moon, Search, Sun, UserRound } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import Drawer from '../Drawer/Drawer';
 import styles from './Header.module.css';
@@ -102,12 +103,14 @@ export default function Header({ children }) {
               />
             </div>
           </div>
+          <Link href="/login" className={styles.iconBtn} aria-label="Entrar">
+            <UserRound size={24} aria-hidden="true" />
+          </Link>
         </div>
       </header>
       <div
         className={`${styles.pageShell} ${isDark ? styles.dark : styles.light}`}
         style={{
-          minHeight: '200vh',
           backgroundColor: isDark ? '#858f7f' : '#f7f4e9',
           color: isDark ? '#252a23' : '#2d4233',
           transition: 'background-color 0.3s ease',
