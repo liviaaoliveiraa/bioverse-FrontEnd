@@ -3,11 +3,6 @@
 
 import { Menu, Moon, Search, Sun } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
-<<<<<<< HEAD
-=======
-import desenhoImg from '../../assets/desenho.png';
-import escritaImg from '../../assets/escrita.png';
->>>>>>> caff905ad15fb5ee224cfd39779e2f091df2c50d
 import Drawer from '../Drawer/Drawer';
 import styles from './Header.module.css';
 
@@ -107,30 +102,6 @@ export default function Header({ children }) {
               />
             </div>
           </div>
-<<<<<<< HEAD
-=======
-
-
-          <a href="/" className={styles.logoWrapper}>
-            <Image src={escritaImg} alt="Bioverse" className={styles.escritaImg} />
-
-
-            <div className={styles.desenhoContainer}>
-              <div className={styles.sparklesLayer} aria-hidden="true">
-                <span className={`${styles.sparkle} ${styles.s1}`}>✦</span>
-                <span className={`${styles.sparkle} ${styles.s2}`}>✧</span>
-                <span className={`${styles.sparkle} ${styles.s3}`}>✦</span>
-                <span className={`${styles.sparkle} ${styles.s4}`}>★</span>
-                <span className={`${styles.sparkle} ${styles.s5}`}>✧</span>
-              </div>
-
-
-              <div className={styles.logoFrame}>
-                <Image src={desenhoImg} alt="Logo Bioverse" className={styles.desenhoImg} />
-              </div>
-            </div>
-          </a>
->>>>>>> caff905ad15fb5ee224cfd39779e2f091df2c50d
         </div>
       </header>
       <div
