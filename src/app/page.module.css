@@ -1,32 +1,36 @@
 .page {
+  position: relative;
   display: flex;
   width: 100%;
+  min-height: calc(100vh - 88px);
   flex-direction: column;
   align-items: center;
   padding-bottom: 48px;
 }
 
 .conteudo {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 20px;
-    transform: translateY(-43vh);
+  position: absolute;
+  top: clamp(16px, 3vh, 40px);
+  left: 0;
+  z-index: 1;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
 }
 
 .logo {
-    display: block;
-    width: min(760px, 85%);
-    height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 3px 5px rgba(30, 55, 45, 0.35));
+  display: block;
+  width: min(700px, 85%);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 5px rgba(30, 55, 45, 0.35));
+  transform: translateY(-62%);
 }
 
 @media (max-width: 768px) {
-    .logo {
-        width: min(520px, 90%);
-    }
+  .logo {
+    width: min(480px, 85%);
+  }
 }
