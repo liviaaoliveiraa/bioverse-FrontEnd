@@ -96,7 +96,7 @@ export default function Drawer({ isOpen, onClose }) {
                 aria-current={active ? 'page' : undefined}
               >
                 <Icon size={22} aria-hidden="true" />
-                {label}
+                <span className={styles.linkLabel}>{label}</span>
               </Link>
             );
           })}
