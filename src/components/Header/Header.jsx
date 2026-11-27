@@ -4,6 +4,7 @@
 import { Menu, Search, UserRound } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import Drawer from '../Drawer/Drawer';
 import styles from './Header.module.css';
 
@@ -13,6 +14,8 @@ export default function Header({ children }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const searchInputRef = useRef(null);
+  const pathname = usePathname();
+  const isAdminRoute = pathname.startsWith('/admin');
 
 
   const openDrawer = () => setIsDrawerOpen(true);
@@ -40,7 +43,7 @@ export default function Header({ children }) {
 
   return (
     <>
-      <header
+      {!isAdminRoute && <header
         className={`${styles.header} ${isScrolled ? styles.scrolled : styles.top}`}
       >
         <div className={styles.container}>
@@ -88,7 +91,7 @@ export default function Header({ children }) {
             <UserRound size={24} aria-hidden="true" />
           </Link>
         </div>
-      </header>
+      </header>}
       <div className={styles.pageShell}>
         <Drawer
           isOpen={isDrawerOpen}
