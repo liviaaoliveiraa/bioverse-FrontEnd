@@ -1,0 +1,55 @@
+.pagina {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    min-height: calc(100vh - 88px);
+    padding: 0 max(16px, calc((100% - 1200px) / 2)) 48px;
+    background-color: transparent;
+    color: #000;
+}
+
+.pagina > svg {
+    height: auto;
+}
+
+.conteudo {
+    position: relative;
+    z-index: 1;
+}
+
+.titulo {
+    display: flex;
+    justify-content: center;
+    margin: -24px 0 24px;
+}
+
+.logoNoticias {
+    display: block;
+    width: min(500px, 50vw);
+    height: auto;
+    object-fit: contain;
+}
+
+.lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    gap: 24px;
+}
+
+.lista > div {
+    background-color: #f7f4e9;
+    color: #000;
+}
+
+.lista > div span,
+.lista > div p {
+    color: #000;
+}
+
+.lista > div h3 {
+    color: #d987ad;
+}
+
+.lista > div a {
+    color: #000;
+}

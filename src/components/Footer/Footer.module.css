@@ -105,12 +105,37 @@
 }
 
 .bottom {
+    display: flex;
     max-width: 1000px;
     margin: 2rem auto 0;
     padding-top: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
     border-top: 1px solid var(--footer-line);
     color: var(--footer-muted);
     font-size: 0.85rem;
+}
+
+.homeButton {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--footer-muted);
+    cursor: pointer;
+    font: inherit;
+    text-decoration: none;
+}
+
+.homeButton:hover {
+    color: var(--footer-accent);
+    text-decoration: underline;
+}
+
+.homeButton:focus-visible {
+    border-radius: 2px;
+    outline: 2px solid var(--footer-accent);
+    outline-offset: 3px;
 }
 
 .bottom p {
@@ -130,6 +155,11 @@
     .inner {
         flex-direction: column;
         gap: 1.5rem;
+    }
+
+    .bottom {
+        align-items: flex-start;
+        flex-direction: column;
     }
 
     .brand .logo {

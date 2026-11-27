@@ -3,6 +3,7 @@
 import { auth } from '@clerk/nextjs/server';
 import axios from 'axios';
 import { revalidatePath } from 'next/cache';
+import { chamarApi as chamarApiBioVerse } from '../../lib/api.js';
 import { requireAdmin } from '../../lib/auth.js';
 
 function apiBaseUrl() {

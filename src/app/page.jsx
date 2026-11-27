@@ -5,6 +5,7 @@ import CenarioSakura from '../components/CenarioSakura/CenarioSakura';
 import CardMateria from '../components/CardMateria/CardMateria';
 import CardNoticia from '../components/CardNoticia/CardNoticia';
 import CarrosselNoticias from '../components/CardNoticia/CarrosselNoticias';
+import { buscarNoticias } from './lib/noticias.js';
 import styles from './page.module.css';
 
 const acessos = [
@@ -71,12 +72,6 @@ async function buscarNoticias() {
         && typeof noticia.data === 'string'
         && Number.isFinite(Date.parse(noticia.data))
     ));
-
-    if (!noticiasValidas) {
-        throw new Error('A API retornou uma notícia com dados inválidos.');
-    }
-
-    return primeirasNoticias;
 }
 
 export default async function Home() {
@@ -91,7 +86,7 @@ export default async function Home() {
 
     return (
         <>
-            <main className={styles.page}>
+            <main id="top" className={styles.page}>
                 <CenarioSakura />
 
                 <div className={styles.conteudo}>
