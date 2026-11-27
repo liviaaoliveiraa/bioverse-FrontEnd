@@ -1,27 +1,32 @@
 .card {
-    background-color: #f3e1b6;
-    border-radius: 12px;
+    background-color: #fff8e8;
+    border-radius: 20px;
     padding: 22px;
-    border: 1px solid #e5d5ad;
-    transition: transform 0.2s;
+    border: 3px solid #d987ad;
+    box-shadow: 0 6px 16px rgba(30, 55, 45, 0.2);
+    color: #854a66;
+    font-family: 'Agrave Pro', sans-serif;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 9px 20px rgba(30, 55, 45, 0.25);
 }
 
 .icone {
     font-size: 30px;
+    color: #d987ad;
 }
 
 .card h3 {
-    color: #1d5e69;
+    color: #854a66;
     font-size: 18px;
     margin: 12px 0 8px;
 }
 
 .card p {
-    color: #555555;
+    color: #854a66;
     font-size: 14px;
     line-height: 1.5;
     margin-bottom: 18px;
@@ -29,14 +34,14 @@
 
 .botao {
     display: inline-block;
-    background-color: #23998e;
+    background-color: #d987ad;
     color: #ffffff;
     text-decoration: none;
     padding: 9px 14px;
-    border-radius: 6px;
+    border-radius: 10px;
     font-size: 13px;
 }
 
 .botao:hover {
-    background-color: #1d5e69;
+    background-color: #854a66;
 }
