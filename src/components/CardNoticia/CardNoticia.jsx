@@ -2,6 +2,13 @@ import Link from "next/link";
 import styles from "./CardNoticia.module.css";
 
 export default function CardNoticia({ id, titulo, resumo, imagem, data }) {
+    const dataFormatada = new Intl.DateTimeFormat('pt-BR', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        timeZone: 'UTC',
+    }).format(new Date(data));
+
     return (
         <div className={styles.card}>
             <img
@@ -11,7 +18,7 @@ export default function CardNoticia({ id, titulo, resumo, imagem, data }) {
             />
 
             <div className={styles.conteudo}>
-                <span className={styles.data}>{data}</span>
+                <span className={styles.data}>{dataFormatada}</span>
 
                 <h3>{titulo}</h3>
 
