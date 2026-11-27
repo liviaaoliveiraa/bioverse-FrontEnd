@@ -16,6 +16,24 @@ export default function Home() {
                     priority
                 />
             </div>
+
+            <aside className={styles.apresentacao} aria-label="Apresentação do BioVerse">
+                <Image
+                    src="/axoloti.gif"
+                    alt="Axolote animado apresentando o site"
+                    width={1000}
+                    height={637}
+                    unoptimized
+                    className={styles.axolote}
+                />
+                <div className={styles.balao}>
+                    <p>
+                        Esse site nasceu para transformar os seus estudos em Biologia. Reunimos conteúdos
+                        essenciais do ensino médio e vestibulares de um jeito simples, acolhedor e
+                        direto ao ponto. Da menor célula aos maiores ecossistemas.
+                    </p>
+                </div>
+            </aside>
         </main>
     );
 }
