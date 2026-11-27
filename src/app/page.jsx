@@ -5,6 +5,7 @@ import CenarioSakura from '../components/CenarioSakura/CenarioSakura';
 import CardMateria from '../components/CardMateria/CardMateria';
 import CardNoticia, { CardNoticiaPlaceholder } from '../components/CardNoticia/CardNoticia';
 import CarrosselNoticias from '../components/CardNoticia/CarrosselNoticias';
+import { buscarNoticias } from './lib/noticias.js';
 import styles from './page.module.css';
 
 const acessos = [
@@ -34,27 +35,8 @@ const acessos = [
     },
 ];
 
-const NOTICIAS_API_URL = 'https://bioverse-back.onrender.com/api/noticias';
-
-async function buscarNoticias() {
-    const resposta = await fetch(NOTICIAS_API_URL, {
-        headers: {
-            'x-api-key': process.env.API_KEY,
-        },
-        next: { revalidate: 300 },
-    });
-
-    if (!resposta.ok) {
-        throw new Error(`Falha ao carregar notícias: HTTP ${resposta.status}`);
-    }
-
-    const dados = await resposta.json();
-    if (!dados || !Array.isArray(dados.noticias)) {
-        throw new Error('A resposta da API de notícias está em um formato inválido.');
-    }
-
-    const primeirasNoticias = dados.noticias.slice(0, 4);
-    const noticiasValidas = primeirasNoticias.every((noticia) => (
+function validarNoticias(noticias) {
+    return noticias.every((noticia) => (
         noticia
         && (typeof noticia.id === 'number' || typeof noticia.id === 'string')
         && typeof noticia.titulo === 'string'
@@ -63,16 +45,15 @@ async function buscarNoticias() {
         && typeof noticia.data === 'string'
         && Number.isFinite(Date.parse(noticia.data))
     ));
-
-    if (!noticiasValidas) {
-        throw new Error('A API retornou uma notícia com dados inválidos.');
-    }
-
-    return primeirasNoticias;
 }
 
 export default async function Home() {
-    const noticias = await buscarNoticias();
+    const todasNoticias = await buscarNoticias();
+    const noticias = todasNoticias.slice(0, 4);
+
+    if (!validarNoticias(noticias)) {
+        throw new Error('A API retornou uma notícia com dados inválidos.');
+    }
 
     return (
         <>

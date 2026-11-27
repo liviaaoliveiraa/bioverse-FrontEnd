@@ -1,0 +1,41 @@
+.pagina {
+    width: min(900px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.noticia {
+    color: #854a66;
+    font-family: "Agrave Pro", sans-serif;
+}
+
+.voltar {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #b85f89;
+}
+
+.imagem {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 520px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.data {
+    margin: 20px 0 8px;
+    font-size: 14px;
+}
+
+.noticia h1 {
+    margin: 0 0 18px;
+    color: #854a66;
+}
+
+.conteudo {
+    font-size: 18px;
+    line-height: 1.7;
+    white-space: pre-wrap;
+}
