@@ -1,0 +1,18 @@
+.materiasPage {
+    position: relative;
+    display: flex;
+    flex: 1;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: -88px;
+    padding: 88px 20px 40px;
+    background: #e9e4c9;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.conteudo {
+    position: relative;
+    z-index: 1;
+}
