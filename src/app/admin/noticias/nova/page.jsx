@@ -1,3 +1,11 @@
-export default function NovaNoticiaPage() {
-  return <main><h1>Nova noticia</h1></main>;
+import { requireAdmin } from '../../../lib/auth.js';
+
+export default async function NovaNoticiaPage() {
+    await requireAdmin();
+
+    return (
+        <main>
+            <h1>Nova notícia</h1>
+        </main>
+    );
 }

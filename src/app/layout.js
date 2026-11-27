@@ -1,4 +1,5 @@
 import './globals.css';
+import { ClerkProvider } from '@clerk/nextjs';
 import { Toaster } from 'react-hot-toast';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
@@ -11,11 +12,18 @@ export default function RootLayout({ children }) {
     return (
         <html lang="pt-BR">
             <body>
-                <Header>
-                    <div style={{ flex: 1 }}>{children}</div>
-                    <Footer />
-                </Header>
-                <Toaster />
+                <ClerkProvider
+                    signInUrl="/login"
+                    signUpUrl="/cadastro"
+                    signInFallbackRedirectUrl="/"
+                    signUpFallbackRedirectUrl="/"
+                >
+                    <Header>
+                        <div style={{ flex: 1 }}>{children}</div>
+                        <Footer />
+                    </Header>
+                    <Toaster />
+                </ClerkProvider>
             </body>
         </html>
     );

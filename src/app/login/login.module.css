@@ -7,7 +7,7 @@
     justify-content: center;
     overflow: hidden;
     margin-top: -88px;
-    padding: 188px 20px 130px;
+    padding: 88px 20px 40px;
     background: #e9e4c9;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -31,6 +31,12 @@
     box-shadow: 7px 8px 0 rgba(62, 77, 48, 0.2);
     color: #344b35;
     text-align: center;
+}
+
+.loginCard {
+    display: flex;
+    flex-direction: column;
+    min-height: 660px;
 }
 
 .sapoContainer {
@@ -85,7 +91,9 @@
     border-radius: 12px;
     background: rgba(255, 250, 231, 0.65);
     color: #40513c;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .campo:focus-within {
@@ -135,7 +143,9 @@
     font-size: 22px;
     font-weight: 700;
     cursor: pointer;
-    transition: background 0.2s ease, transform 0.2s ease;
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
 }
 
 .botaoEntrar:hover {
@@ -169,6 +179,10 @@
     font-size: 18px;
 }
 
+.loginCard .cadastro {
+    margin-top: auto;
+}
+
 .cadastro a {
     color: #344b35;
     font-weight: 700;
@@ -183,7 +197,7 @@
 @media (max-width: 600px) {
     .loginPage {
         min-height: 100vh;
-        padding: 188px 18px 100px;
+        padding: 88px 18px 32px;
     }
 
     .card {
@@ -237,5 +251,37 @@
 
     .subtitulo {
         font-size: 14px;
+    }
+}
+
+@media (max-height: 700px) {
+    .loginPage {
+        padding-top: 68px;
+        padding-bottom: 28px;
+    }
+
+    .card {
+        padding-top: 40px;
+        padding-bottom: 32px;
+    }
+
+    .loginCard {
+        min-height: 520px;
+    }
+
+    .card h1 {
+        margin-bottom: 8px;
+        font-size: 30px;
+    }
+
+    .subtitulo {
+        margin-bottom: 12px;
+        font-size: 15px;
+    }
+
+    .sapoContainer {
+        top: -48px;
+        width: 180px;
+        height: 105px;
     }
 }
