@@ -1,0 +1,17 @@
+.pagina {
+    width: min(1200px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 48px 0;
+}
+
+.pagina h1 {
+    margin: 0 0 24px;
+    color: #d987ad;
+    font-family: "Agrave Pro", sans-serif;
+}
+
+.lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    gap: 24px;
+}
