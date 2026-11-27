@@ -1,6 +1,7 @@
-import styles from './Footer.module.css';
 import Image from 'next/image';
+import styles from './Footer.module.css';
 import escritaImg from '../../assets/escrita-clara.png';
+import VoltarInicio from './VoltarInicio';
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
@@ -39,6 +40,7 @@ export default function Footer() {
 
             <div className={styles.bottom}>
                 <p>© {currentYear} Bioverse. Todos os direitos reservados.</p>
+                <VoltarInicio />
             </div>
         </footer>
     );
