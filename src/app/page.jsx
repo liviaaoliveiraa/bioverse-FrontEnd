@@ -67,6 +67,22 @@ export default function Home() {
             </main>
 
             <section className={styles.acessos} aria-label="Acessos principais">
+                <aside className={styles.apresentacaoSapo} aria-label="Orientação do sapo">
+                    <div className={`${styles.balao} ${styles.balaoSapo}`}>
+                        <p>
+                            Acesse os cards abaixo para explorar os conteúdos e comece agora a sua jornada rumo à aprovação!
+                        </p>
+                    </div>
+                    <Image
+                        src="/frog.gif"
+                        alt="Sapo animado indicando os cards de conteúdo"
+                        width={300}
+                        height={225}
+                        unoptimized
+                        className={styles.sapo}
+                    />
+                </aside>
+
                 <div className={styles.gradeAcessos}>
                     {acessos.map((acesso) => (
                         <CardMateria key={acesso.link} {...acesso} />
