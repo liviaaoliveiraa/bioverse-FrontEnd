@@ -1,4 +1,5 @@
 import './globals.css';
+import { ptBR } from '@clerk/localizations';
 import { ClerkProvider } from '@clerk/nextjs';
 import { Toaster } from 'react-hot-toast';
 import Footer from '../components/Footer/Footer';
@@ -13,10 +14,9 @@ export default function RootLayout({ children }) {
         <html lang="pt-BR">
             <body>
                 <ClerkProvider
-                    signInUrl="/login"
-                    signUpUrl="/cadastro"
-                    signInFallbackRedirectUrl="/"
-                    signUpFallbackRedirectUrl="/"
+                    localization={ptBR}
+                    signInUrl="/admin/login"
+                    signInFallbackRedirectUrl="/admin"
                 >
                     <Header>
                         <div style={{ flex: 1 }}>{children}</div>
