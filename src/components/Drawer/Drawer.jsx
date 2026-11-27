@@ -95,7 +95,7 @@ export default function Drawer({ isOpen, onClose }) {
                 className={`${styles.link} ${active ? styles.active : ''}`}
                 aria-current={active ? 'page' : undefined}
               >
-                <Icon size={22} aria-hidden="true" />
+                <Icon size={20} aria-hidden="true" />
                 <span className={styles.linkLabel}>{label}</span>
               </Link>
             );

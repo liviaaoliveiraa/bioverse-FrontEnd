@@ -34,9 +34,43 @@ const acessos = [
     },
 ];
 
-const noticias = [];
+const NOTICIAS_API_URL = 'https://bioverse-back.onrender.com/api/noticias';
 
-export default function Home() {
+async function buscarNoticias() {
+    const resposta = await fetch(NOTICIAS_API_URL, {
+        next: { revalidate: 300 },
+    });
+
+    if (!resposta.ok) {
+        throw new Error(`Falha ao carregar notícias: HTTP ${resposta.status}`);
+    }
+
+    const dados = await resposta.json();
+    if (!dados || !Array.isArray(dados.noticias)) {
+        throw new Error('A resposta da API de notícias está em um formato inválido.');
+    }
+
+    const primeirasNoticias = dados.noticias.slice(0, 4);
+    const noticiasValidas = primeirasNoticias.every((noticia) => (
+        noticia
+        && (typeof noticia.id === 'number' || typeof noticia.id === 'string')
+        && typeof noticia.titulo === 'string'
+        && typeof noticia.resumo === 'string'
+        && typeof noticia.img === 'string'
+        && typeof noticia.data === 'string'
+        && Number.isFinite(Date.parse(noticia.data))
+    ));
+
+    if (!noticiasValidas) {
+        throw new Error('A API retornou uma notícia com dados inválidos.');
+    }
+
+    return primeirasNoticias;
+}
+
+export default async function Home() {
+    const noticias = await buscarNoticias();
+
     return (
         <>
             <main className={styles.page}>
@@ -100,7 +134,14 @@ export default function Home() {
                     >
                         {noticias.length > 0
                             ? noticias.map((noticia) => (
-                                <CardNoticia key={noticia.id} {...noticia} />
+                                <CardNoticia
+                                    key={noticia.id}
+                                    id={noticia.id}
+                                    titulo={noticia.titulo}
+                                    resumo={noticia.resumo}
+                                    imagem={noticia.img}
+                                    data={noticia.data}
+                                />
                             ))
                             : Array.from({ length: 4 }, (_, index) => (
                                 <CardNoticiaPlaceholder key={index} />
