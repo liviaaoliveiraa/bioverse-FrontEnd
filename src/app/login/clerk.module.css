@@ -1,0 +1,87 @@
+/* biome-ignore-all lint/complexity/noImportantStyles: Clerk resets these component borders. */
+html .hidden {
+    display: none;
+}
+
+html .socialButton {
+    min-height: 48px;
+    border: 2px solid #b0b496 !important;
+    border-radius: 12px;
+    background: rgba(255, 250, 231, 0.65);
+    color: #40513c;
+}
+
+html .socialButton:hover {
+    background: #f5efdb;
+}
+
+html .socialButtonText {
+    color: #40513c;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+html .dividerLine {
+    background: #c5c2a3;
+}
+
+html .dividerText {
+    color: #40513c;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+html .formFieldLabel {
+    color: #40513c;
+    font-size: 16px;
+}
+
+html .formFieldInput {
+    min-height: 58px;
+    border: 2px solid #b0b496 !important;
+    border-radius: 12px;
+    background: rgba(255, 250, 231, 0.65);
+    color: #344b35;
+    font-size: 17px;
+}
+
+html .formFieldInput:focus {
+    border-color: #55744b !important;
+}
+
+html .formFieldInputShowPasswordButton {
+    color: #40513c;
+}
+
+html .formFieldErrorText {
+    color: #9c3d32;
+}
+
+html .formButtonPrimary {
+    min-height: 56px;
+    border: 2px solid #344b35 !important;
+    border-radius: 11px;
+    background: #405d40;
+    color: #fff8e8;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+html .formButtonPrimary:hover {
+    background: #304b34;
+    transform: translateY(-2px);
+}
+
+@media (max-height: 700px) {
+    html .socialButton {
+        min-height: 42px;
+    }
+
+    html .formFieldInput {
+        min-height: 52px;
+    }
+
+    html .formButtonPrimary {
+        min-height: 52px;
+    }
+}
