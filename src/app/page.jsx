@@ -38,6 +38,9 @@ const NOTICIAS_API_URL = 'https://bioverse-back.onrender.com/api/noticias';
 
 async function buscarNoticias() {
     const resposta = await fetch(NOTICIAS_API_URL, {
+        headers: {
+            'x-api-key': process.env.API_KEY,
+        },
         next: { revalidate: 300 },
     });
 
