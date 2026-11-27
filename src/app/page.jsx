@@ -57,7 +57,7 @@ export default async function Home() {
 
     return (
         <>
-            <main className={styles.page}>
+            <main id="top" className={styles.page}>
                 <CenarioSakura />
 
                 <div className={styles.conteudo}>
