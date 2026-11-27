@@ -1,15 +1,15 @@
-import { SignedIn, SignOutButton } from '@clerk/nextjs';
+import { Show, SignOutButton } from '@clerk/nextjs';
 
 export default function AdminLayout({ children }) {
     return (
         <>
-            <SignedIn>
+            <Show when="signed-in">
                 <nav>
                     <SignOutButton redirectUrl="/admin/login">
-                        <button>Sair</button>
+                        <button type="button">Sair</button>
                     </SignOutButton>
                 </nav>
-            </SignedIn>
+            </Show>
             {children}
         </>
     );

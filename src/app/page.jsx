@@ -28,7 +28,7 @@ const acessos = [
     },
     {
         icone: <Info size={24} aria-hidden="true" />,
-        titulo: 'Sobre nós',
+        titulo: 'Sobre nós',    
         descricao: 'Conheça o projeto e a equipe por trás do BioVerse.',
         link: '/sobre',
     },
