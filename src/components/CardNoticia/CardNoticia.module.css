@@ -1,4 +1,6 @@
 .card {
+    display: flex;
+    flex-direction: column;
     flex: 0 0 min(320px, 100%);
     background-color: #fff8e8;
     border-radius: 20px;
@@ -166,6 +168,9 @@
 }
 
 .conteudo {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
     padding: 22px;
 }
 
@@ -189,6 +194,8 @@
 
 .botao {
     display: inline-block;
+    align-self: flex-start;
+    margin-top: auto;
     background-color: #d987ad;
     color: #ffffff;
     text-decoration: none;

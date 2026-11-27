@@ -23,6 +23,31 @@
   color: #2d4233;
 }
 
+.newsHeader {
+  --bg-scrolled: rgba(247, 244, 233, 0.98);
+}
+
+.newsListingHeader {
+  --bg-scrolled: transparent;
+}
+
+.header.newsHeader {
+  background-color: #f7f4e9;
+}
+
+.header.newsListingHeader {
+  background-color: transparent;
+}
+
+.newsPageShell {
+  background-color: #f7f4e9;
+  color: #000;
+}
+
+.newsListingShell {
+  background-color: #557e4f;
+}
+
 
 .header::before {
   content: '';
