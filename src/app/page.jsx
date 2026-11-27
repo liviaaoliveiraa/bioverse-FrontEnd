@@ -142,7 +142,6 @@ export default async function Home() {
 
                 <section className={styles.noticias} aria-label="Notícias de Biologia">
                     <CarrosselNoticias
-                        titulo="Notícias de Biologia"
                         ariaLabel="Carrossel de notícias de Biologia"
                     >
                         {erroNoticias

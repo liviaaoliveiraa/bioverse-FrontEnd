@@ -23,6 +23,11 @@ export default async function NoticiaPage({ params }) {
         typeof noticia.conteudo_completo === 'string'
             ? noticia.conteudo_completo
             : noticia.resumo;
+    const fonte =
+        typeof noticia.fonte === 'string' &&
+        /^https?:\/\//i.test(noticia.fonte)
+            ? noticia.fonte
+            : null;
 
     return (
         <main className={styles.pagina}>
@@ -41,6 +46,25 @@ export default async function NoticiaPage({ params }) {
                 <p className={styles.data}>{dataFormatada}</p>
                 <h1>{noticia.titulo}</h1>
                 <p className={styles.conteudo}>{conteudo}</p>
+                {fonte && (
+                    <section
+                        className={styles.fontes}
+                        aria-labelledby="fontes-titulo"
+                    >
+                        <h2 id="fontes-titulo">Fontes</h2>
+                        <ul>
+                            <li>
+                                <a
+                                    href={fonte}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {fonte}
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
+                )}
             </article>
         </main>
     );
