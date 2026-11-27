@@ -60,17 +60,23 @@ export default function Home() {
                         <p>
                             Esse site nasceu para transformar os seus estudos em Biologia. Reunimos conteúdos
                             essenciais do ensino médio e vestibulares de um jeito simples, acolhedor e
-                            direto ao ponto. Da menor célula aos maiores ecossistemas.
+                            direto ao ponto. <strong>Da menor célula aos maiores ecossistemas!</strong>
                         </p>
                     </div>
                 </aside>
             </main>
 
             <section className={styles.acessos} aria-label="Acessos principais">
+                <div className={styles.gradeAcessos}>
+                    {acessos.map((acesso) => (
+                        <CardMateria key={acesso.link} {...acesso} />
+                    ))}
+                </div>
+
                 <aside className={styles.apresentacaoSapo} aria-label="Orientação do sapo">
                     <div className={`${styles.balao} ${styles.balaoSapo}`}>
                         <p>
-                            Acesse os cards abaixo para explorar os conteúdos e comece agora a sua jornada rumo à aprovação!
+                            A Biologia não para de evoluir, e o que acontece hoje na ciência pode cair na sua próxima prova! Confira as notícias mais recentes da área e <strong>fique por dentro das principais descobertas.</strong>
                         </p>
                     </div>
                     <Image
@@ -82,12 +88,6 @@ export default function Home() {
                         className={styles.sapo}
                     />
                 </aside>
-
-                <div className={styles.gradeAcessos}>
-                    {acessos.map((acesso) => (
-                        <CardMateria key={acesso.link} {...acesso} />
-                    ))}
-                </div>
             </section>
         </>
     );

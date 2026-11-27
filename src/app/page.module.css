@@ -90,14 +90,12 @@
 }
 
 .apresentacaoSapo {
-  position: relative;
-  top: -32px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) clamp(90px, 11vw, 150px);
   align-items: start;
   gap: 18px;
   width: min(900px, 100%);
-  margin: 0 0 32px auto;
+  margin: clamp(96px, 15vh, 140px) 0 0 auto;
 }
 
 .sapo {
@@ -137,7 +135,6 @@
     grid-template-columns: minmax(0, 1fr) clamp(80px, 19vw, 110px);
     gap: 12px;
     width: 100%;
-    margin-bottom: 24px;
   }
 
   .gradeAcessos {
