@@ -1,18 +1,20 @@
 .pagina {
-    width: min(900px, calc(100% - 32px));
-    margin: 0 auto;
-    padding: 40px 0;
+    width: 100%;
+    min-height: calc(100vh - 88px);
+    padding: 40px max(16px, calc((100% - 900px) / 2));
+    background-color: #f7f4e9;
+    color: #000;
 }
 
 .noticia {
-    color: #854a66;
+    color: #000;
     font-family: "Agrave Pro", sans-serif;
 }
 
 .voltar {
     display: inline-block;
     margin-bottom: 20px;
-    color: #b85f89;
+    color: #000;
 }
 
 .imagem {
@@ -27,11 +29,12 @@
 .data {
     margin: 20px 0 8px;
     font-size: 14px;
+    color: #000;
 }
 
 .noticia h1 {
     margin: 0 0 18px;
-    color: #854a66;
+    color: #d987ad;
 }
 
 .conteudo {

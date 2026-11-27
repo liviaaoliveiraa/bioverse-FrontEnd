@@ -1,11 +1,11 @@
 import styles from './CenarioSakura.module.css';
 
-export default function CenarioSakura() {
+export default function CenarioSakura({ preserveAspectRatio = 'xMidYMid slice' }) {
     return (
         <svg
             className={styles.cenario}
             viewBox="0 0 1600 1000"
-            preserveAspectRatio="xMidYMid slice"
+            preserveAspectRatio={preserveAspectRatio}
             aria-hidden="true"
         >
             <defs>
@@ -48,7 +48,7 @@ export default function CenarioSakura() {
 
             <g fill="#82ad70">
                 <rect x="0" y="620" width="1600" height="55" />
-                <rect x="0" y="720" width="1600" height="65" />
+                <rect x="0" y="720" width="1600" height="70" />
             </g>
 
             <g>
@@ -104,7 +104,7 @@ export default function CenarioSakura() {
             </g>
 
             <g fill="#557e4f">
-                <rect x="0" y="790" width="1600" height="210" />
+                <rect x="0" y="790" width="1600" height="230" />
                 <rect x="0" y="760" width="1600" height="45" />
             </g>
 

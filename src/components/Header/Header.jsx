@@ -4,6 +4,7 @@
 import { Menu, Search, UserRound } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import Drawer from '../Drawer/Drawer';
 import styles from './Header.module.css';
 
@@ -13,6 +14,9 @@ export default function Header({ children }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const searchInputRef = useRef(null);
+  const pathname = usePathname();
+  const isNewsPage = pathname === '/noticias' || pathname.startsWith('/noticias/');
+  const isNewsListing = pathname === '/noticias';
 
 
   const openDrawer = () => setIsDrawerOpen(true);
@@ -41,7 +45,7 @@ export default function Header({ children }) {
   return (
     <>
       <header
-        className={`${styles.header} ${isScrolled ? styles.scrolled : styles.top}`}
+        className={`${styles.header} ${isNewsPage ? styles.newsHeader : ''} ${isNewsListing ? styles.newsListingHeader : ''} ${isScrolled ? styles.scrolled : styles.top}`}
       >
         <div className={styles.container}>
           <div className={styles.leftGroup}>
@@ -89,7 +93,7 @@ export default function Header({ children }) {
           </Link>
         </div>
       </header>
-      <div className={styles.pageShell}>
+      <div className={`${styles.pageShell} ${isNewsPage ? styles.newsPageShell : ''} ${isNewsListing ? styles.newsListingShell : ''}`}>
         <Drawer
           isOpen={isDrawerOpen}
           onClose={closeDrawer}
