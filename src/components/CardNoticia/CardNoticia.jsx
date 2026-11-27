@@ -24,3 +24,20 @@ export default function CardNoticia({ id, titulo, resumo, imagem, data }) {
         </div>
     );
 }
+
+export function CardNoticiaPlaceholder() {
+    return (
+        <article className={`${styles.card} ${styles.cardPlaceholder}`} aria-hidden="true">
+            <div className={styles.placeholderImagem} />
+            <div className={styles.conteudo}>
+                <span className={`${styles.placeholderLinha} ${styles.placeholderData}`} />
+                <span className={`${styles.placeholderLinha} ${styles.placeholderTitulo}`} />
+                <div className={styles.placeholderResumo}>
+                    <span className={styles.placeholderLinha} />
+                    <span className={styles.placeholderLinha} />
+                    <span className={styles.placeholderLinha} />
+                </div>
+            </div>
+        </article>
+    );
+}

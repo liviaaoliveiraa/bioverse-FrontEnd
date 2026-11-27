@@ -3,6 +3,8 @@ import { BookOpen, Briefcase, ClipboardCheck, Info } from 'lucide-react';
 import logoBranca from '../assets/escrita-clara.png';
 import CenarioSakura from '../components/CenarioSakura/CenarioSakura';
 import CardMateria from '../components/CardMateria/CardMateria';
+import CardNoticia, { CardNoticiaPlaceholder } from '../components/CardNoticia/CardNoticia';
+import CarrosselNoticias from '../components/CardNoticia/CarrosselNoticias';
 import styles from './page.module.css';
 
 const acessos = [
@@ -31,6 +33,8 @@ const acessos = [
         link: '/sobre',
     },
 ];
+
+const noticias = [];
 
 export default function Home() {
     return (
@@ -88,6 +92,22 @@ export default function Home() {
                         className={styles.sapo}
                     />
                 </aside>
+
+                <section className={styles.noticias} aria-label="Notícias de Biologia">
+                    <CarrosselNoticias
+                        titulo="Notícias de Biologia"
+                        ariaLabel="Carrossel de notícias de Biologia"
+                    >
+                        {noticias.length > 0
+                            ? noticias.map((noticia) => (
+                                <CardNoticia key={noticia.id} {...noticia} />
+                            ))
+                            : Array.from({ length: 4 }, (_, index) => (
+                                <CardNoticiaPlaceholder key={index} />
+                            ))
+                        }
+                    </CarrosselNoticias>
+                </section>
             </section>
         </>
     );

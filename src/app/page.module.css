@@ -119,6 +119,11 @@
   margin: 0 auto;
 }
 
+.noticias {
+  width: min(1100px, 100%);
+  margin: clamp(48px, 7vh, 80px) auto 0;
+}
+
 @media (max-width: 768px) {
   .logo {
     width: min(480px, 85%);
