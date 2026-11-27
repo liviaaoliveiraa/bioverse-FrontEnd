@@ -1,20 +1,10 @@
-/* --- TEMAS (mesmas cores da header) --- */
-.light {
+.drawerTheme {
   --bg: #f7f4e9;
   --border: #dcd5be;
   --text-main: #2d4233;
   --accent: #3d7a4f;
   --btn-bg: #ebe5d1;
   --overlay: rgba(30, 40, 30, 0.4);
-}
-
-.dark {
-  --bg: #302734;
-  --border: #726c7b;
-   --text-main: #bdacbd;
-  --accent: #3d373d;
-  --btn-bg: #727581;
-  --overlay: rgba(0, 0, 0, 0.5);
 }
 
 
@@ -84,10 +74,6 @@
   mix-blend-mode: multiply;
 }
 
-.dark .titleImage {
-  mix-blend-mode: normal;
-}
-
 .iconBtn {
   background: none;
   color: var(--text-main);
@@ -138,26 +124,6 @@
 .active {
   background: var(--btn-bg);
   border-color: var(--border);
-  color: var(--accent);
-}
-
-/* --- BOTÃO DE TEMA --- */
-.themeBtn {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 12px;
-  margin-top: 16px;
-  font-family: inherit;
-  font-size: 1.5rem;
-  color: var(--text-main);
-  background: var(--btn-bg);
-  border: 2px solid var(--border);
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-
-.themeBtn:hover {
   color: var(--accent);
 }
 

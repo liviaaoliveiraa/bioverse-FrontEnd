@@ -1,7 +1,7 @@
 'use client';
 
 
-import { Menu, Moon, Search, Sun, UserRound } from 'lucide-react';
+import { Menu, Search, UserRound } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Drawer from '../Drawer/Drawer';
@@ -10,7 +10,6 @@ import styles from './Header.module.css';
 
 export default function Header({ children }) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [isDark, setIsDark] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const searchInputRef = useRef(null);
@@ -18,7 +17,6 @@ export default function Header({ children }) {
 
   const openDrawer = () => setIsDrawerOpen(true);
   const closeDrawer = () => setIsDrawerOpen(false);
-  const toggleTheme = () => setIsDark((prev) => !prev);
 
 
   useEffect(() => {
@@ -43,9 +41,7 @@ export default function Header({ children }) {
   return (
     <>
       <header
-        className={`${styles.header} ${isDark ? styles.dark : styles.light} ${
-          isScrolled ? styles.scrolled : styles.top
-        }`}
+        className={`${styles.header} ${isScrolled ? styles.scrolled : styles.top}`}
       >
         <div className={styles.container}>
           <div className={styles.leftGroup}>
@@ -57,21 +53,6 @@ export default function Header({ children }) {
             >
               <Menu size={24} aria-hidden="true" />
             </button>
-
-
-            <button
-              type="button"
-              onClick={toggleTheme}
-              className={styles.iconBtn}
-              aria-label={isDark ? 'Ativar modo claro' : 'Ativar modo escuro'}
-            >
-              {isDark ? (
-                <Sun size={24} aria-hidden="true" />
-              ) : (
-                <Moon size={24} aria-hidden="true" />
-              )}
-            </button>
-
 
             <div
               className={`${styles.searchControl} ${isSearchOpen ? styles.searchControlOpen : ''}`}
@@ -108,19 +89,10 @@ export default function Header({ children }) {
           </Link>
         </div>
       </header>
-      <div
-        className={`${styles.pageShell} ${isDark ? styles.dark : styles.light}`}
-        style={{
-          backgroundColor: isDark ? '#564d61' : '#557e4f',
-          color: isDark ? '#d8cbd8' : '#2d4233',
-          transition: 'background-color 0.3s ease',
-        }}
-      >
+      <div className={styles.pageShell}>
         <Drawer
           isOpen={isDrawerOpen}
           onClose={closeDrawer}
-          isDark={isDark}
-          onToggleTheme={toggleTheme}
         />
         {children}
       </div>

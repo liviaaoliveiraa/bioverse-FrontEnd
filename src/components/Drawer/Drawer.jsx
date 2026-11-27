@@ -10,8 +10,6 @@ import {
   BookOpen,
   Newspaper,
   Info,
-  Moon,
-  Sun,
   Briefcase,
   Lightbulb,
   GraduationCap,
@@ -33,7 +31,7 @@ const LINKS = [
   { href: '/sobre', label: 'Sobre nós', Icon: Info },
 ];
 
-export default function Drawer({ isOpen, onClose, isDark, onToggleTheme }) {
+export default function Drawer({ isOpen, onClose }) {
   const pathname = usePathname();
 
   // fecha com ESC
@@ -61,7 +59,7 @@ export default function Drawer({ isOpen, onClose, isDark, onToggleTheme }) {
   }, [pathname]);
 
   return (
-    <div className={isDark ? styles.dark : styles.light}>
+    <div className={styles.drawerTheme}>
       <div
         className={`${styles.overlay} ${isOpen ? styles.overlayOpen : ''}`}
         onClick={onClose}
@@ -104,14 +102,6 @@ export default function Drawer({ isOpen, onClose, isDark, onToggleTheme }) {
           })}
         </nav>
 
-        <button type="button" onClick={onToggleTheme} className={styles.themeBtn}>
-          {isDark ? (
-            <Sun size={22} aria-hidden="true" />
-          ) : (
-            <Moon size={22} aria-hidden="true" />
-          )}
-          {isDark ? 'Modo claro' : 'Modo escuro'}
-        </button>
       </aside>
     </div>
   );
