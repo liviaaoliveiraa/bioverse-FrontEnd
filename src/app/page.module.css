@@ -124,6 +124,21 @@
   margin: clamp(48px, 7vh, 80px) auto 0;
 }
 
+.erroNoticias,
+.semNoticias {
+  margin: 0;
+  padding: 24px;
+  border-radius: 12px;
+  background: #fff8e8;
+  color: #2d4233;
+  font-family: 'Agrave Pro', sans-serif;
+  text-align: center;
+}
+
+.erroNoticias {
+  border: 1px solid #d987ad;
+}
+
 @media (max-width: 768px) {
   .logo {
     width: min(480px, 85%);

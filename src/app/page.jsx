@@ -3,7 +3,7 @@ import { BookOpen, Briefcase, ClipboardCheck, Info } from 'lucide-react';
 import logoBranca from '../assets/escrita-clara.png';
 import CenarioSakura from '../components/CenarioSakura/CenarioSakura';
 import CardMateria from '../components/CardMateria/CardMateria';
-import CardNoticia, { CardNoticiaPlaceholder } from '../components/CardNoticia/CardNoticia';
+import CardNoticia from '../components/CardNoticia/CardNoticia';
 import CarrosselNoticias from '../components/CardNoticia/CarrosselNoticias';
 import { buscarNoticias } from './lib/noticias.js';
 import styles from './page.module.css';
@@ -35,8 +35,35 @@ const acessos = [
     },
 ];
 
-function validarNoticias(noticias) {
-    return noticias.every((noticia) => (
+const NOTICIAS_API_URL = 'https://bioverse-back.onrender.com/api/noticias';
+
+async function buscarNoticias() {
+    const apiKey = process.env.API_KEY?.trim();
+    if (!apiKey) {
+        throw new Error('API_KEY não configurada. Defina essa variável no ambiente do servidor.');
+    }
+
+    const resposta = await fetch(NOTICIAS_API_URL, {
+        headers: {
+            'x-api-key': apiKey,
+        },
+        next: { revalidate: 300 },
+    });
+
+    if (!resposta.ok) {
+        if (resposta.status === 401) {
+            throw new Error('A API recusou a chave (401). Confira o valor de API_KEY no ambiente do servidor.');
+        }
+        throw new Error(`Falha ao carregar notícias: HTTP ${resposta.status}`);
+    }
+
+    const dados = await resposta.json();
+    if (!dados || !Array.isArray(dados.noticias)) {
+        throw new Error('A resposta da API de notícias está em um formato inválido.');
+    }
+
+    const primeirasNoticias = dados.noticias.slice(0, 4);
+    const noticiasValidas = primeirasNoticias.every((noticia) => (
         noticia
         && (typeof noticia.id === 'number' || typeof noticia.id === 'string')
         && typeof noticia.titulo === 'string'
@@ -48,11 +75,13 @@ function validarNoticias(noticias) {
 }
 
 export default async function Home() {
-    const todasNoticias = await buscarNoticias();
-    const noticias = todasNoticias.slice(0, 4);
-
-    if (!validarNoticias(noticias)) {
-        throw new Error('A API retornou uma notícia com dados inválidos.');
+    let noticias = [];
+    let erroNoticias = '';
+    try {
+        noticias = await buscarNoticias();
+    } catch (erro) {
+        console.error('Não foi possível carregar as notícias do BioVerse:', erro);
+        erroNoticias = erro instanceof Error ? erro.message : 'Erro inesperado ao carregar notícias.';
     }
 
     return (
@@ -116,20 +145,20 @@ export default async function Home() {
                         titulo="Notícias de Biologia"
                         ariaLabel="Carrossel de notícias de Biologia"
                     >
-                        {noticias.length > 0
-                            ? noticias.map((noticia) => (
-                                <CardNoticia
-                                    key={noticia.id}
-                                    id={noticia.id}
-                                    titulo={noticia.titulo}
-                                    resumo={noticia.resumo}
-                                    imagem={noticia.img}
-                                    data={noticia.data}
-                                />
-                            ))
-                            : Array.from({ length: 4 }, (_, index) => (
-                                <CardNoticiaPlaceholder key={index} />
-                            ))
+                        {erroNoticias
+                            ? <p className={styles.erroNoticias} role="alert">{erroNoticias}</p>
+                            : noticias.length > 0
+                                ? noticias.map((noticia) => (
+                                    <CardNoticia
+                                        key={noticia.id}
+                                        id={noticia.id}
+                                        titulo={noticia.titulo}
+                                        resumo={noticia.resumo}
+                                        imagem={noticia.img}
+                                        data={noticia.data}
+                                    />
+                                ))
+                                : <p className={styles.semNoticias}>Nenhuma notícia publicada no momento.</p>
                         }
                     </CarrosselNoticias>
                 </section>

@@ -15,8 +15,7 @@ export default function Header({ children }) {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const searchInputRef = useRef(null);
   const pathname = usePathname();
-  const isNewsPage = pathname === '/noticias' || pathname.startsWith('/noticias/');
-  const isNewsListing = pathname === '/noticias';
+  const isAdminRoute = pathname.startsWith('/admin');
 
 
   const openDrawer = () => setIsDrawerOpen(true);
@@ -44,8 +43,8 @@ export default function Header({ children }) {
 
   return (
     <>
-      <header
-        className={`${styles.header} ${isNewsPage ? styles.newsHeader : ''} ${isNewsListing ? styles.newsListingHeader : ''} ${isScrolled ? styles.scrolled : styles.top}`}
+      {!isAdminRoute && <header
+        className={`${styles.header} ${isScrolled ? styles.scrolled : styles.top}`}
       >
         <div className={styles.container}>
           <div className={styles.leftGroup}>
@@ -92,8 +91,8 @@ export default function Header({ children }) {
             <UserRound size={24} aria-hidden="true" />
           </Link>
         </div>
-      </header>
-      <div className={`${styles.pageShell} ${isNewsPage ? styles.newsPageShell : ''} ${isNewsListing ? styles.newsListingShell : ''}`}>
+      </header>}
+      <div className={styles.pageShell}>
         <Drawer
           isOpen={isDrawerOpen}
           onClose={closeDrawer}

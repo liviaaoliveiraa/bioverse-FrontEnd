@@ -1,22 +1,23 @@
 import { SignIn } from '@clerk/nextjs';
+import styles from '../admin.module.css';
 
 export default function AdminLoginPage() {
     return (
-        <main
-            style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                gap: '1rem',
-                padding: '3rem 1rem',
-            }}
-        >
-            <h1>Login administrativo</h1>
+        <main className={styles.loginPanel}>
+            <div>
+                <h1>Entrar no BioVerse</h1>
+                <p>Acesse sua conta administrativa para continuar.</p>
+            </div>
             <SignIn
                 routing="hash"
-                signUpUrl="/admin/login"
                 forceRedirectUrl="/admin"
-                appearance={{ elements: { footerAction: { display: 'none' } } }}
+                appearance={{
+                    elements: {
+                        rootBox: { width: '100%' },
+                        card: { boxShadow: 'none', border: '0', width: '100%' },
+                        footerAction: { display: 'none' },
+                    },
+                }}
             />
         </main>
     );

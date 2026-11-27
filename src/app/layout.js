@@ -2,8 +2,8 @@ import './globals.css';
 import { ptBR } from '@clerk/localizations';
 import { ClerkProvider } from '@clerk/nextjs';
 import { Toaster } from 'react-hot-toast';
-import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
+import SiteFooter from '../components/Footer/SiteFooter.jsx';
 
 export const metadata = {
     title: 'FrontEnd - Codeverse',
@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
                 >
                     <Header>
                         <div style={{ flex: 1 }}>{children}</div>
-                        <Footer />
+                        <SiteFooter />
                     </Header>
                     <Toaster />
                 </ClerkProvider>
