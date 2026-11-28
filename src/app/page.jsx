@@ -3,7 +3,7 @@ import { BookOpen, Briefcase, ClipboardCheck, Info } from 'lucide-react';
 import logoBranca from '../assets/escrita-clara.png';
 import CenarioSakura from '../components/CenarioSakura/CenarioSakura';
 import CardMateria from '../components/CardMateria/CardMateria';
-import CardNoticia, { CardNoticiaPlaceholder } from '../components/CardNoticia/CardNoticia';
+import CardNoticia from '../components/CardNoticia/CardNoticia';
 import CarrosselNoticias from '../components/CardNoticia/CarrosselNoticias';
 import { buscarNoticias } from './lib/noticias.js';
 import styles from './page.module.css';
@@ -48,11 +48,16 @@ function validarNoticias(noticias) {
 }
 
 export default async function Home() {
-    const todasNoticias = await buscarNoticias();
-    const noticias = todasNoticias.slice(0, 4);
-
-    if (!validarNoticias(noticias)) {
-        throw new Error('A API retornou uma notícia com dados inválidos.');
+    let noticias = [];
+    let erroNoticias = '';
+    try {
+        noticias = (await buscarNoticias()).slice(0, 4);
+        if (!validarNoticias(noticias)) {
+            throw new Error('A API retornou uma notícia com dados inválidos.');
+        }
+    } catch (erro) {
+        console.error('Não foi possível carregar as notícias do BioVerse:', erro);
+        erroNoticias = erro instanceof Error ? erro.message : 'Erro inesperado ao carregar notícias.';
     }
 
     return (
@@ -115,8 +120,10 @@ export default async function Home() {
                     <CarrosselNoticias
                         ariaLabel="Carrossel de notícias de Biologia"
                     >
-                        {noticias.length > 0
-                            ? noticias.map((noticia) => (
+                        {erroNoticias
+                            ? <p className={styles.erroNoticias} role="alert">{erroNoticias}</p>
+                            : noticias.length > 0
+                                ? noticias.map((noticia) => (
                                 <CardNoticia
                                     key={noticia.id}
                                     id={noticia.id}
@@ -126,9 +133,7 @@ export default async function Home() {
                                     data={noticia.data}
                                 />
                             ))
-                            : Array.from({ length: 4 }, (_, index) => (
-                                <CardNoticiaPlaceholder key={index} />
-                            ))
+                                : <p className={styles.semNoticias}>Nenhuma notícia publicada no momento.</p>
                         }
                     </CarrosselNoticias>
                 </section>

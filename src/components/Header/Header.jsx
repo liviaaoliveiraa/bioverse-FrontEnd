@@ -15,6 +15,7 @@ export default function Header({ children }) {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const searchInputRef = useRef(null);
   const pathname = usePathname();
+  const isAdminRoute = pathname.startsWith('/admin');
   const isNewsPage = pathname === '/noticias' || pathname.startsWith('/noticias/');
   const isNewsListing = pathname === '/noticias';
 
@@ -44,6 +45,7 @@ export default function Header({ children }) {
 
   return (
     <>
+      {!isAdminRoute && (
       <header
         className={`${styles.header} ${isNewsPage ? styles.newsHeader : ''} ${isNewsListing ? styles.newsListingHeader : ''} ${isScrolled ? styles.scrolled : styles.top}`}
       >
@@ -93,6 +95,7 @@ export default function Header({ children }) {
           </Link>
         </div>
       </header>
+      )}
       <div className={`${styles.pageShell} ${isNewsPage ? styles.newsPageShell : ''} ${isNewsListing ? styles.newsListingShell : ''}`}>
         <Drawer
           isOpen={isDrawerOpen}

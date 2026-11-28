@@ -1,0 +1,199 @@
+.pagina {
+    position: relative;
+    display: flex;
+    flex: 1;
+    min-height: 100vh;
+    overflow: hidden;
+    margin-top: -88px;
+    padding: 120px 20px 40px;
+    background: #719b9b;
+    font-family: 'Agrave Pro', sans-serif;
+}
+
+.fundoCenario {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 0;
+    height: 100vh;
+    pointer-events: none;
+}
+
+.conteudo {
+    position: relative;
+    z-index: 2;
+    width: min(1100px, 100%);
+    margin: 0 auto;
+}
+
+.titulo {
+    display: flex;
+    justify-content: center;
+    margin: -24px 0 24px;
+}
+
+.logoVideos {
+    display: block;
+    width: min(460px, 48vw);
+    height: auto;
+    object-fit: contain;
+}
+
+.listaVideos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.cardVideo {
+    display: grid;
+    min-width: 0;
+    grid-template-columns: minmax(160px, 48%) minmax(0, 1fr);
+    overflow: hidden;
+    border: 3px solid #65744d;
+    border-radius: 14px;
+    background: rgba(250, 244, 222, 0.96);
+    color: #344b35;
+    transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        background-color 180ms ease;
+}
+
+.cardVideo:hover,
+.cardVideo:focus-within {
+    transform: translateY(-5px);
+    border-color: #405d40;
+    background-color: #fff8e8;
+}
+
+.areaMiniatura {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    align-self: center;
+    background: #d7d1b6;
+}
+
+.miniatura {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.duracao {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    padding: 3px 7px;
+    border-radius: 4px;
+    background: rgba(20, 28, 20, 0.82);
+    color: #fff8e8;
+    font-size: 0.85rem;
+}
+
+.dadosVideo {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+}
+
+.disciplina {
+    margin-bottom: 10px;
+    padding: 4px 9px;
+    border-radius: 999px;
+    background: #ebe5d1;
+    color: #405d40;
+    font-size: 0.9rem;
+}
+
+.dadosVideo h2 {
+    display: -webkit-box;
+    overflow: hidden;
+    margin: 0 0 8px;
+    font-size: 1.15rem;
+    line-height: 1.3;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.dadosVideo p {
+    display: -webkit-box;
+    overflow: hidden;
+    margin: 0 0 12px;
+    line-height: 1.4;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+.linkVideo {
+    align-self: flex-end;
+    margin-top: auto;
+    padding: 9px 14px;
+    border-radius: 8px;
+    background: #405d40;
+    color: #fff8e8;
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+        background-color 160ms ease,
+        transform 160ms ease;
+}
+
+.linkVideo:hover {
+    transform: translateY(-2px);
+    background: #304b34;
+}
+
+.linkVideo:focus-visible {
+    outline: 3px solid #d987ad;
+    outline-offset: 3px;
+}
+
+.semVideos {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: 24px;
+    border-radius: 12px;
+    background: rgba(250, 244, 222, 0.96);
+    color: #344b35;
+    text-align: center;
+}
+
+@media (max-width: 800px) {
+    .pagina {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+
+    .listaVideos {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .cardVideo {
+        grid-template-columns: 1fr;
+    }
+
+    .areaMiniatura {
+        align-self: stretch;
+    }
+
+    .dadosVideo {
+        padding: 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cardVideo,
+    .linkVideo {
+        transition: none;
+    }
+}

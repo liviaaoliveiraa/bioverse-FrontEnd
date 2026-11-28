@@ -55,6 +55,7 @@ export default async function NoticiaPage({ params }) {
                         <ul>
                             <li>
                                 <a
+                                    className="secondaryText"
                                     href={fonte}
                                     target="_blank"
                                     rel="noopener noreferrer"

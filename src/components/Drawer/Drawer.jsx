@@ -7,7 +7,6 @@ import { usePathname } from 'next/navigation';
 import {
   X,
   Home,
-  BookOpen,
   Newspaper,
   Info,
   Briefcase,
@@ -21,10 +20,9 @@ import styles from './Drawer.module.css';
 
 const LINKS = [
   { href: '/', label: 'Início', Icon: Home },
-  { href: '/materias', label: 'Matérias', Icon: BookOpen },
+  { href: '/dicas', label: 'Dicas', Icon: Lightbulb },
   { href: '/noticias', label: 'Notícias', Icon: Newspaper },
   { href: '/videos', label: 'Vídeos', Icon: Video },
-  { href: '/dicas', label: 'Dicas', Icon: Lightbulb },
   { href: '/simulado', label: 'Simulado', Icon: ClipboardCheck },
   { href: '/estagio', label: 'Estágio', Icon: GraduationCap },
   { href: '/carreiras', label: 'Carreiras', Icon: Briefcase },
