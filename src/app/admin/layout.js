@@ -1,16 +1,5 @@
-import { SignedIn, SignOutButton } from '@clerk/nextjs';
+import AdminShell from './AdminShell.jsx';
 
 export default function AdminLayout({ children }) {
-    return (
-        <>
-            <SignedIn>
-                <nav>
-                    <SignOutButton redirectUrl="/admin/login">
-                        <button>Sair</button>
-                    </SignOutButton>
-                </nav>
-            </SignedIn>
-            {children}
-        </>
-    );
+    return <AdminShell>{children}</AdminShell>;
 }

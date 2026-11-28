@@ -35,8 +35,35 @@ const acessos = [
     },
 ];
 
-function validarNoticias(noticias) {
-    return noticias.every((noticia) => (
+const NOTICIAS_API_URL = 'https://bioverse-back.onrender.com/api/noticias';
+
+async function buscarNoticias() {
+    const apiKey = process.env.API_KEY?.trim();
+    if (!apiKey) {
+        throw new Error('API_KEY não configurada. Defina essa variável no ambiente do servidor.');
+    }
+
+    const resposta = await fetch(NOTICIAS_API_URL, {
+        headers: {
+            'x-api-key': apiKey,
+        },
+        next: { revalidate: 300 },
+    });
+
+    if (!resposta.ok) {
+        if (resposta.status === 401) {
+            throw new Error('A API recusou a chave (401). Confira o valor de API_KEY no ambiente do servidor.');
+        }
+        throw new Error(`Falha ao carregar notícias: HTTP ${resposta.status}`);
+    }
+
+    const dados = await resposta.json();
+    if (!dados || !Array.isArray(dados.noticias)) {
+        throw new Error('A resposta da API de notícias está em um formato inválido.');
+    }
+
+    const primeirasNoticias = dados.noticias.slice(0, 4);
+    const noticiasValidas = primeirasNoticias.every((noticia) => (
         noticia
         && (typeof noticia.id === 'number' || typeof noticia.id === 'string')
         && typeof noticia.titulo === 'string'
