@@ -1,11 +1,13 @@
 import styles from './CenarioSapo.module.css';
 
-export default function CenarioSapo() {
+export default function CenarioSapo({
+    preserveAspectRatio = 'xMidYMid slice',
+} = {}) {
     return (
         <svg
             className={styles.cenario}
             viewBox="0 0 1600 900"
-            preserveAspectRatio="xMidYMid slice"
+            preserveAspectRatio={preserveAspectRatio}
             aria-hidden="true"
         >
             <defs>

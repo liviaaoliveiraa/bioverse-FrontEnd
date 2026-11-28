@@ -78,7 +78,10 @@ export default async function Home() {
     let noticias = [];
     let erroNoticias = '';
     try {
-        noticias = await buscarNoticias();
+        noticias = (await buscarNoticias()).slice(0, 4);
+        if (!validarNoticias(noticias)) {
+            throw new Error('A API retornou uma notícia com dados inválidos.');
+        }
     } catch (erro) {
         console.error('Não foi possível carregar as notícias do BioVerse:', erro);
         erroNoticias = erro instanceof Error ? erro.message : 'Erro inesperado ao carregar notícias.';
@@ -148,15 +151,15 @@ export default async function Home() {
                             ? <p className={styles.erroNoticias} role="alert">{erroNoticias}</p>
                             : noticias.length > 0
                                 ? noticias.map((noticia) => (
-                                    <CardNoticia
-                                        key={noticia.id}
-                                        id={noticia.id}
-                                        titulo={noticia.titulo}
-                                        resumo={noticia.resumo}
-                                        imagem={noticia.img}
-                                        data={noticia.data}
-                                    />
-                                ))
+                                <CardNoticia
+                                    key={noticia.id}
+                                    id={noticia.id}
+                                    titulo={noticia.titulo}
+                                    resumo={noticia.resumo}
+                                    imagem={noticia.img}
+                                    data={noticia.data}
+                                />
+                            ))
                                 : <p className={styles.semNoticias}>Nenhuma notícia publicada no momento.</p>
                         }
                     </CarrosselNoticias>

@@ -1,24 +1,26 @@
 import Link from 'next/link';
-import { ArrowDown, ClipboardCheck, Leaf, Sparkles } from 'lucide-react';
+import { ArrowRight, Lightbulb, Newspaper, Video } from 'lucide-react';
 import CenarioSakura from '../../components/CenarioSakura/CenarioSakura';
 import styles from './simulado.module.css';
 
 const FORMATOS = [
   {
-    icon: ClipboardCheck,
-    title: 'Simulado completo',
-    description: 'Revise os principais conteúdos de biologia.',
+    href: '/dicas',
+    icon: Lightbulb,
+    title: 'Dicas',
+    description: 'Confira dicas para estudar Biologia.',
   },
   {
-    href: '/materias',
-    icon: Leaf,
-    title: 'Por matéria',
-    description: 'Escolha um assunto para praticar.',
+    href: '/videos',
+    icon: Video,
+    title: 'Vídeos',
+    description: 'Assista a vídeos sobre Biologia.',
   },
   {
-    icon: Sparkles,
-    title: 'Revisão leve',
-    description: 'Aprenda no seu ritmo, uma questão por vez.',
+    href: '/noticias',
+    icon: Newspaper,
+    title: 'Notícias',
+    description: 'Acompanhe as novidades da Biologia.',
   },
 ];
 
@@ -29,11 +31,11 @@ export default function SimuladoPage() {
 
       <div className={styles.content}>
         <section className={styles.intro} aria-labelledby="simulado-title">
-          <span className={styles.kicker}>SIMULADO BIOVERSE</span>
+          <span className={`${styles.kicker} secondaryText`}>SIMULADO BIOVERSE</span>
           <h1 id="simulado-title">Pronto para praticar?</h1>
-          <p>Escolha um formato e teste seus conhecimentos de biologia.</p>
-          <Link href="#formatos" className={styles.primaryButton}>
-            Ver opções <ArrowDown size={18} aria-hidden="true" />
+          <p>Responda às perguntas e teste seus conhecimentos de biologia.</p>
+          <Link href="/simulado/questoes" className={styles.primaryButton}>
+            Começar simulado <ArrowRight size={18} aria-hidden="true" />
           </Link>
         </section>
 
@@ -48,7 +50,7 @@ export default function SimuladoPage() {
                   </span>
                   <span className={styles.formatText}>
                     <strong>{title}</strong>
-                    <span>{description}</span>
+                    <span className="secondaryText">{description}</span>
                   </span>
                 </>
               );

@@ -18,7 +18,7 @@ export default function CardNoticia({ id, titulo, resumo, imagem, data }) {
             />
 
             <div className={styles.conteudo}>
-                <span className={styles.data}>{dataFormatada}</span>
+                <span className={`${styles.data} secondaryText`}>{dataFormatada}</span>
 
                 <h3>{titulo}</h3>
 
